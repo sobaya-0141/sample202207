@@ -16,13 +16,13 @@ dependencyResolutionManagement {
             version("coroutine", "1.5.1")
             library("kotlinx-coroutines-android", "org.jetbrains.kotlinx", "kotlinx-coroutines-android").versionRef("coroutine")
 
-            version("core", "1.6.0")
+            version("core", "1.8.0")
             library("core-ktx", "androidx.core", "core-ktx").versionRef("core")
 
-            version("appcompat", "1.4.0")
+            version("appcompat", "1.4.2")
             library("appcompat", "androidx.appcompat", "appcompat").versionRef("appcompat")
 
-            version("material", "1.4.0")
+            version("material", "1.6.1")
             library("material", "com.google.android.material", "material").versionRef("material")
 
             version("paging", "3.1.1")
@@ -108,5 +108,7 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Sample202207"
 include ':app'
-include ':repositorhy'
+include ':repository'
 include ':util'
+include ':features:initialscreen'
+include ':usecase'
