@@ -103,6 +103,9 @@ dependencyResolutionManagement {
             library("room-runtime", "androidx.room", "room-runtime").versionRef("room")
             library("room-compiler", "androidx.room", "room-compiler").versionRef("room")
             bundle("room", ["room-ktx", "room-runtime"])
+
+            version("ktlint", "0.43.1")
+            library("ktlint", "com.pinterest", "ktlint").versionRef("ktlint")
         }
     }
 }
