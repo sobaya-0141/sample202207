@@ -16,13 +16,13 @@ dependencyResolutionManagement {
             version("coroutine", "1.5.1")
             library("kotlinx-coroutines-android", "org.jetbrains.kotlinx", "kotlinx-coroutines-android").versionRef("coroutine")
 
-            version("core", "1.6.0")
+            version("core", "1.8.0")
             library("core-ktx", "androidx.core", "core-ktx").versionRef("core")
 
-            version("appcompat", "1.4.0")
+            version("appcompat", "1.4.2")
             library("appcompat", "androidx.appcompat", "appcompat").versionRef("appcompat")
 
-            version("material", "1.4.0")
+            version("material", "1.6.1")
             library("material", "com.google.android.material", "material").versionRef("material")
 
             version("paging", "3.1.1")
@@ -31,7 +31,8 @@ dependencyResolutionManagement {
             library("paging-compose", "androidx.paging", "paging-compose").versionRef("paging-compose")
             bundle("paging", ["paging", "paging-compose"])
 
-            version("compose", "1.2.0-alpha03")
+            version("compose-compiler", "1.3.0-rc01")
+            version("compose", "1.2.0-beta01")
             library("compose-animation", "androidx.compose.animation", "animation").versionRef("compose")
             library("compose-ui", "androidx.compose.ui", "ui").versionRef("compose")
             library("compose-material", "androidx.compose.material", "material").versionRef("compose")
@@ -48,7 +49,7 @@ dependencyResolutionManagement {
             version("activity-compose", "1.4.0")
             library("activity-compose", "androidx.activity", "activity-compose").versionRef("activity-compose")
 
-            version("coil_version", "2.0.0-rc01")
+            version("coil_version", "2.1.0")
             library("coil_compose", "io.coil-kt", "coil-compose").versionRef("coil_version")
             library("coil-gif", "io.coil-kt", "coil-gif").versionRef("coil_version")
 
@@ -78,6 +79,9 @@ dependencyResolutionManagement {
 
             version("hilt", "2.38.1")
             library("hilt-android", "com.google.dagger", "hilt-android").versionRef("hilt")
+            version("hilt-compose", "1.0.0")
+            library("hilt-compose", "androidx.hilt", "hilt-navigation-compose").versionRef("hilt-compose")
+            bundle("hilt", ["hilt-android", "hilt-compose"])
             library("hilt-compiler", "com.google.dagger", "hilt-compiler").versionRef("hilt")
 
             version("okhttp", "4.9.1")
@@ -106,10 +110,21 @@ dependencyResolutionManagement {
 
             version("ktlint", "0.43.1")
             library("ktlint", "com.pinterest", "ktlint").versionRef("ktlint")
+
+            version("compose-destinations", "1.6.15-beta")
+            library("compose-destinations-core", "io.github.raamcosta.compose-destinations", "core").versionRef("compose-destinations")
+            library("compose-destinations-ksp", "io.github.raamcosta.compose-destinations", "ksp").versionRef("compose-destinations")
+
+            version("accompanist", "0.26.0-alpha")
+            library("accompanist-pager", "com.google.accompanist", "accompanist-pager").versionRef("accompanist")
+            library("accompanist-pager-indicators", "com.google.accompanist", "accompanist-pager-indicators").versionRef("accompanist")
+            bundle("accompanist-pager", ["accompanist-pager", "accompanist-pager-indicators"])
         }
     }
 }
 rootProject.name = "Sample202207"
 include ':app'
-include ':repositorhy'
+include ':repository'
 include ':util'
+include ':features:initialscreen'
+include ':usecase'

@@ -2,11 +2,11 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'com.google.devtools.ksp' version '1.7.10-1.0.6'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
-    namespace 'sobaya.libs.util'
+    namespace 'com.example.usecase'
     compileSdk 32
 
     defaultConfig {
@@ -33,12 +33,12 @@ android {
 }
 
 dependencies {
+    implementation project(":util")
+    implementation project(':repository')
 
-    implementation libs.bundles.compose
-    implementation libs.bundles.hilt
+    implementation libs.kotlinx.coroutines.android
+    implementation libs.hilt.android
     kapt libs.hilt.compiler
-    implementation libs.compose.destinations.core
-    ksp libs.compose.destinations.ksp
 
     testImplementation libs.junit
     androidTestImplementation libs.bundles.android.test
