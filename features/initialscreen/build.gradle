@@ -60,6 +60,8 @@ dependencies {
     kapt libs.hilt.compiler
     implementation libs.compose.destinations.core
     ksp libs.compose.destinations.ksp
+    implementation libs.coil.compose
+    implementation libs.bundles.accompanist.pager
 
     testImplementation libs.junit
     androidTestImplementation libs.bundles.android.test
