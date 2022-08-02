@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.devtools.ksp' version '1.7.10-1.0.6'
 }
 
 android {
@@ -28,6 +29,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -38,12 +42,16 @@ android {
     buildFeatures {
         compose true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion '1.2.0-beta01'
-    }
     packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+    applicationVariants.all { variant ->
+        kotlin.sourceSets {
+            getByName(variant.name) {
+                kotlin.srcDir("build/generated/ksp/${variant.name}/kotlin")
+            }
         }
     }
 }
@@ -69,14 +77,18 @@ task ktlintFormat(type: JavaExec, group: "formatting") {
 }
 
 dependencies {
+    implementation project(":features:initialscreen")
+
     implementation libs.core.ktx
     implementation libs.material
     implementation libs.appcompat
     implementation libs.kotlinx.coroutines.android
     implementation libs.bundles.compose
     implementation libs.lifecycle.runtime.ktx
-    implementation libs.hilt.android
+    implementation libs.bundles.hilt
     kapt libs.hilt.compiler
+    implementation libs.compose.destinations.core
+    ksp libs.compose.destinations.ksp
 
     testImplementation libs.junit
     androidTestImplementation libs.bundles.android.test
