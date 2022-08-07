@@ -53,7 +53,7 @@ dependencyResolutionManagement {
             library("coil_compose", "io.coil-kt", "coil-compose").versionRef("coil_version")
             library("coil-gif", "io.coil-kt", "coil-gif").versionRef("coil_version")
 
-            version("accompanist", "0.23.1")
+            version("accompanist", "0.25.0")
             library("accompanist-permissions", "com.google.accompanist", "accompanist-permissions").versionRef("accompanist")
 
             bundle("compose", ["compose-ui", "compose-material", "compose-ui-tooling-preview", "compose-foundation-layout", "compoase-material-icons-extended", "activity-compose", "constraintlayout-compose", "coil_compose", "coil-gif", "accompanist-permissions"])
