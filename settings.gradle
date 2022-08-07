@@ -43,7 +43,7 @@ dependencyResolutionManagement {
             library("compose-runtime-livedata", "androidx.compose.runtime", "runtime-livedata").versionRef("compose")
             library("compoase-material-icons-extended", "androidx.compose.material", "material-icons-extended").versionRef("compose")
 
-            version("compose-constraint", "1.0.0-beta02")
+            version("compose-constraint", "1.0.1")
             library("constraintlayout-compose", "androidx.constraintlayout", "constraintlayout-compose").versionRef("compose-constraint")
 
             version("activity-compose", "1.4.0")
