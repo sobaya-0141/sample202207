@@ -67,32 +67,32 @@ jobs:
 #          restore-keys: |
 #            ${{ runner.os }}-gradle-
 
-      # テスト
-      - name: Test with Gradle
-        run: ./gradlew test --stacktrace
-
-      # コードカバレッジをJaCoCo形式で取得
-      - name: Get code coverage for JaCoCo
-        run: ./gradlew jacocoDebugTestReport
-
-      # コードカバレッジをCodecovへアップロード
-      - name: Upload code coverage to Codecov
-        run: bash <(curl -s https://codecov.io/bash)
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-      # テスト結果とコードカバレッジのアップロード
-      - name: Upload test results and code coverage Artifact
-        uses: actions/upload-artifact@v2
-        if: success() || failure()
-        with:
-          name: results
-          path: |
-            **/build/reports/tests/**/*
-            **/build/reports/test-results/**/*
-            **/build/reports/jacoco/**/*
-          if-no-files-found: warn
-          retention-days: 14
+#      # テスト
+#      - name: Test with Gradle
+#        run: ./gradlew test --stacktrace
+#
+#      # コードカバレッジをJaCoCo形式で取得
+#      - name: Get code coverage for JaCoCo
+#        run: ./gradlew jacocoDebugTestReport
+#
+#      # コードカバレッジをCodecovへアップロード
+#      - name: Upload code coverage to Codecov
+#        run: bash <(curl -s https://codecov.io/bash)
+#        env:
+#          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+#
+#      # テスト結果とコードカバレッジのアップロード
+#      - name: Upload test results and code coverage Artifact
+#        uses: actions/upload-artifact@v2
+#        if: success() || failure()
+#        with:
+#          name: results
+#          path: |
+#            **/build/reports/tests/**/*
+#            **/build/reports/test-results/**/*
+#            **/build/reports/jacoco/**/*
+#          if-no-files-found: warn
+#          retention-days: 14
 
   lint:
     runs-on: ubuntu-latest
