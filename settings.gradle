@@ -84,7 +84,7 @@ dependencyResolutionManagement {
             bundle("hilt", ["hilt-android", "hilt-compose"])
             library("hilt-compiler", "com.google.dagger", "hilt-compiler").versionRef("hilt")
 
-            version("okhttp", "4.9.1")
+            version("okhttp", "4.10.0")
             library("okhttp", "com.squareup.okhttp3", "okhttp").versionRef("okhttp")
             version("retrofit", "2.9.0")
             library("retrofit", "com.squareup.retrofit2", "retrofit").versionRef("retrofit")
