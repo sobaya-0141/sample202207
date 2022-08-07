@@ -96,7 +96,7 @@ dependencyResolutionManagement {
             library("retrofit-mock", "com.squareup.retrofit2", "retrofit-mock").versionRef("retrofit-mock")
             bundle("retrofit-bundle", ["okhttp", "retrofit", "kotlinx-serialization-json", "retrofit2-kotlinx-serialization-converter", "retrofit-mock"])
 
-            version("navigation-compose", "2.4.1")
+            version("navigation-compose", "2.5.1")
             library("navigation-compose", "androidx.navigation", "navigation-compose").versionRef("navigation-compose")
             version("hilt-navigation-compose", "1.0.0-rc01")
             library("hilt-navigation-compose", "androidx.hilt", "hilt-navigation-compose").versionRef("hilt-navigation-compose")
