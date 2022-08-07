@@ -58,7 +58,7 @@ dependencyResolutionManagement {
 
             bundle("compose", ["compose-ui", "compose-material", "compose-ui-tooling-preview", "compose-foundation-layout", "compoase-material-icons-extended", "activity-compose", "constraintlayout-compose", "coil_compose", "coil-gif", "accompanist-permissions"])
 
-            version("lifecycle", "2.4.1")
+            version("lifecycle", "2.5.1")
             library("lifecycle-runtime-ktx", "androidx.lifecycle", "lifecycle-runtime-ktx").versionRef("lifecycle")
             library("lifecycle-viewmodel-ktx", "androidx.lifecycle", "lifecycle-viewmodel-ktx").versionRef("lifecycle")
             library("lifecycle-viewmodel-compose", "androidx.lifecycle", "lifecycle-viewmodel-compose").versionRef("lifecycle")
