@@ -102,7 +102,7 @@ dependencyResolutionManagement {
             library("hilt-navigation-compose", "androidx.hilt", "hilt-navigation-compose").versionRef("hilt-navigation-compose")
             bundle("compose-navigastion", ["navigation-compose", "hilt-navigation-compose"])
 
-            version("room", "2.4.1")
+            version("room", "2.4.3")
             library("room-ktx", "androidx.room", "room-ktx").versionRef("room")
             library("room-runtime", "androidx.room", "room-runtime").versionRef("room")
             library("room-compiler", "androidx.room", "room-compiler").versionRef("room")
