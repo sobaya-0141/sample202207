@@ -138,7 +138,7 @@ jobs:
       # 静的解析
       - name: Lint with ktlint
         run: ktlint --reporter=checkstyle,output=build/ktlint-report.xml
-        continue-on-error: true
+        continue-on-error: false
 
       # 結果の表示
       - name: Show results on GitHub
