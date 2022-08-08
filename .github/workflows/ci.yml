@@ -1,6 +1,6 @@
 name: Check pull request
 
-on: pull_request
+on: push
 
 env:
   # 実行する Gradle コマンド(プロジェクトによって調整してください。)
