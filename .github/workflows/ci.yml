@@ -5,8 +5,8 @@ on: push
 env:
   # 実行する Gradle コマンド(プロジェクトによって調整してください。)
   GRADLE_KTLINT_TASK: 'ktlint'
-  GRADLE_ANDROID_LINT_TASK: 'lintDevelopDebug'
-  GRADLE_UNIT_TEST_TASK: 'testDevelopDebugUnitTest'
+  GRADLE_ANDROID_LINT_TASK: 'lint'
+  GRADLE_UNIT_TEST_TASK: 'test'
 
 jobs:
   check:
