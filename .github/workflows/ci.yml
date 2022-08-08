@@ -112,7 +112,7 @@ jobs:
 
       # アーティファクトへアップロード
       - name: Upload results Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: success() || failure()
         with:
           name: results
@@ -169,7 +169,7 @@ jobs:
 
       # アーティファクトへアップロード
       - name: Upload results Artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         if: failure()
         with:
           name: results
