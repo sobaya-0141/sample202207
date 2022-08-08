@@ -156,3 +156,8 @@ jobs:
             **/build/ktlint-report.xml
           if-no-files-found: error
           retention-days: 14
+
+      - name: upload coverage
+        uses: codecov/codecov-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
