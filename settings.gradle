@@ -46,7 +46,7 @@ dependencyResolutionManagement {
             version("compose-constraint", "1.0.1")
             library("constraintlayout-compose", "androidx.constraintlayout", "constraintlayout-compose").versionRef("compose-constraint")
 
-            version("activity-compose", "1.4.0")
+            version("activity-compose", "1.5.1")
             library("activity-compose", "androidx.activity", "activity-compose").versionRef("activity-compose")
 
             version("coil_version", "2.1.0")
