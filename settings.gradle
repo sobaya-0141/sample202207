@@ -13,7 +13,7 @@ dependencyResolutionManagement {
     }
     versionCatalogs {
         libs {
-            version("coroutine", "1.5.1")
+            version("coroutine", "1.6.4")
             library("kotlinx-coroutines-android", "org.jetbrains.kotlinx", "kotlinx-coroutines-android").versionRef("coroutine")
 
             version("core", "1.8.0")
