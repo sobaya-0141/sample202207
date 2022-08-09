@@ -4,7 +4,7 @@ import android.os.*
 import androidx.activity.*
 import androidx.activity.compose.*
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.MaterialTheme
+import androidx.compose.material.*
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import com.example.initial_screen.NavGraphs
