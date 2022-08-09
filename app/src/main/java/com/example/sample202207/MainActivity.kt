@@ -6,7 +6,7 @@ import androidx.activity.compose.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.material.*
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.*
 import com.example.initial_screen.NavGraphs
 import com.example.sample202207.ui.theme.Sample202207Theme
 import com.ramcosta.composedestinations.DestinationsNavHost
