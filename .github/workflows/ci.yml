@@ -55,11 +55,20 @@ jobs:
         run: ./gradlew $GRADLE_ANDROID_LINT_TASK
       - name: Run Unit Test
         run: ./gradlew $GRADLE_UNIT_TEST_TASK
-      - name: Set up and run Danger
-        if: cancelled() != true # 中断されない限り、エラーでも実行
-        env:
-          GITHUB_TOKEN: ${{ secrets.SOBAYA_TOKEN }} # 標準で利用できるトークンを利用
-          JOB_STATUS: ${{ job.status }} # jobのステータスを Danger へ受け渡す
+      - name: Install danger
         run: |
-          gem install ${{ steps.gem-info.outputs.packages }}
-          danger --dangerfile='.github/workflows/check-pull-request.danger'
+          gem install bundler
+          bundle install
+      - name: Run Danger
+        if: always()
+        env:
+          DANGER_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bundle exec danger --dangerfile='.github/workflows/check-pull-request.danger'
+#      - name: Set up and run Danger
+#        if: cancelled() != true # 中断されない限り、エラーでも実行
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.SOBAYA_TOKEN }} # 標準で利用できるトークンを利用
+#          JOB_STATUS: ${{ job.status }} # jobのステータスを Danger へ受け渡す
+#        run: |
+#          gem install ${{ steps.gem-info.outputs.packages }}
+#          danger --dangerfile='.github/workflows/check-pull-request.danger'
