@@ -61,5 +61,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SOBAYA_TOKEN }} # 標準で利用できるトークンを利用
           JOB_STATUS: ${{ job.status }} # jobのステータスを Danger へ受け渡す
         run: |
-          gem install danger
-          bundle exec danger --dangerfile='.github/workflows/check-pull-request.danger'
+          gem install ${{ steps.gem-info.outputs.packages }}
+          danger --dangerfile='.github/workflows/check-pull-request.danger'
