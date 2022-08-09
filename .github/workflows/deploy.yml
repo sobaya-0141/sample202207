@@ -2,10 +2,6 @@ name: deploy
 
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, reopened]
 
 jobs:
   deploy:
@@ -24,4 +20,5 @@ jobs:
         with:
           appId: ${{secrets.FIREBASE_DEV_APP_ID}}
           token: ${{secrets.FIREBASE_TOKEN}}
+          groups: all
           file: app/build/outputs/apk/debug/app-debug.apk
