@@ -18,12 +18,14 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+
       # JDKのセットアップ
       - name: set up JDK 11
         uses: actions/setup-java@v3
         with:
           distribution: 'zulu'
           java-version: '11'
+
       - name: Restore gradle cache # Gradle のキャッシュをリストア
         uses: actions/cache@v2
         with:
@@ -31,10 +33,13 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
           key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle', '**/*.gradle.kts') }}
+
       - name: Set up Ruby # gem を利用するので Ruby をセットアップ
         uses: actions/setup-ruby@v1
         with:
           ruby-version: '2.6'
+          architecture: 'x64'
+
       - name: Get gem info
         env: # Danger で利用する gem をここで列挙
           PACKAGES: danger:6.2.0 danger-checkstyle_format:0.1.1 danger-android_lint:0.0.8 danger-junit:1.0.0
@@ -43,17 +48,25 @@ jobs:
           echo "::set-output name=dir::$(gem environment gemdir)" # キャッシュするgemのディレクトリ
           echo "::set-output name=packages::$PACKAGES" # install 用の文字列
           echo "::set-output name=key::$(echo $PACKAGES | tr ' ' '-')" # キャッシュのキー文字列
+
       - name: Restore gem cache # gem のキャッシュをリストア
         uses: actions/cache@v2
         with:
           path: ${{ steps.gem-info.outputs.dir }}
           key: ${{ runner.os }}-gem-${{ steps.gem-info.outputs.key }}
+
       - name: Run ktlint
+        if: cancelled() != true
         run: ./gradlew $GRADLE_KTLINT_TASK
+
       - name: Run Android Lint
+        if: cancelled() != true
         run: ./gradlew $GRADLE_ANDROID_LINT_TASK
+
       - name: Run Unit Test
+        if: cancelled() != true
         run: ./gradlew $GRADLE_UNIT_TEST_TASK
+
       - name: Set up and run Danger
         if: cancelled() != true # 中断されない限り、エラーでも実行
         env:
