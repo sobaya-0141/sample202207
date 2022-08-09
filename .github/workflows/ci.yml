@@ -11,7 +11,7 @@ env:
 jobs:
   check:
     name: Check pull request
-    runs-on: ubuntu-18.04 # Java や Ruby を利用するので念の為、環境を固定
+    runs-on: ubuntu-latest
     steps:
       - name: Check out
         uses: actions/checkout@v2
