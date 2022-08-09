@@ -1,7 +1,8 @@
 name: deploy
 
 on:
-  push:
+  check_run:
+    types: [rerequested, completed]
 
 jobs:
   deploy:
