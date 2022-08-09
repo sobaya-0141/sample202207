@@ -1,7 +1,6 @@
 name: Check pull request
 
 on:
-  push:
   pull_request:
 
 env:
@@ -58,7 +57,7 @@ jobs:
       - name: Set up and run Danger
         if: cancelled() != true # 中断されない限り、エラーでも実行
         env:
-          GITHUB_TOKEN: ${{ secrets.DANGER_GITHUB_API_TOKEN }} # 標準で利用できるトークンを利用
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # 標準で利用できるトークンを利用
           JOB_STATUS: ${{ job.status }} # jobのステータスを Danger へ受け渡す
         run: |
           gem install ${{ steps.gem-info.outputs.packages }}
