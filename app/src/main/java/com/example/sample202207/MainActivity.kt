@@ -2,7 +2,7 @@ package com.example.sample202207
 
 import android.os.*
 import androidx.activity.*
-import androidx.activity.compose.setContent
+import androidx.activity.compose.*
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
