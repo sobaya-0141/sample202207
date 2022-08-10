@@ -32,7 +32,7 @@ dependencyResolutionManagement {
             bundle("paging", ["paging", "paging-compose"])
 
             version("compose-compiler", "1.3.0-rc01")
-            version("compose", "1.2.0")
+            version("compose", "1.2.1")
             library("compose-animation", "androidx.compose.animation", "animation").versionRef("compose")
             library("compose-ui", "androidx.compose.ui", "ui").versionRef("compose")
             library("compose-material", "androidx.compose.material", "material").versionRef("compose")
