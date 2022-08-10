@@ -27,7 +27,7 @@ dependencyResolutionManagement {
 
             version("paging", "3.1.1")
             library("paging", "androidx.paging", "paging-runtime").versionRef("paging")
-            version("paging-compose", "1.0.0-alpha15")
+            version("paging-compose", "1.0.0-alpha16")
             library("paging-compose", "androidx.paging", "paging-compose").versionRef("paging-compose")
             bundle("paging", ["paging", "paging-compose"])
 
