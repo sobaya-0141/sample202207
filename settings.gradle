@@ -19,7 +19,7 @@ dependencyResolutionManagement {
             version("core", "1.8.0")
             library("core-ktx", "androidx.core", "core-ktx").versionRef("core")
 
-            version("appcompat", "1.4.2")
+            version("appcompat", "1.5.0")
             library("appcompat", "androidx.appcompat", "appcompat").versionRef("appcompat")
 
             version("material", "1.6.1")
