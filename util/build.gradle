@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
-    id 'com.google.devtools.ksp' version '1.7.10-1.0.6'
 }
 
 android {
@@ -37,8 +36,6 @@ dependencies {
     implementation libs.bundles.compose
     implementation libs.bundles.hilt
     kapt libs.hilt.compiler
-    implementation libs.compose.destinations.core
-    ksp libs.compose.destinations.ksp
 
     testImplementation libs.junit
     androidTestImplementation libs.bundles.android.test
