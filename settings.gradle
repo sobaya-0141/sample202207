@@ -111,10 +111,6 @@ dependencyResolutionManagement {
             version("ktlint", "0.47.0")
             library("ktlint", "com.pinterest", "ktlint").versionRef("ktlint")
 
-            version("compose-destinations", "1.6.15-beta")
-            library("compose-destinations-core", "io.github.raamcosta.compose-destinations", "core").versionRef("compose-destinations")
-            library("compose-destinations-ksp", "io.github.raamcosta.compose-destinations", "ksp").versionRef("compose-destinations")
-
             version("accompanist", "0.26.0-alpha")
             library("accompanist-pager", "com.google.accompanist", "accompanist-pager").versionRef("accompanist")
             library("accompanist-pager-indicators", "com.google.accompanist", "accompanist-pager-indicators").versionRef("accompanist")

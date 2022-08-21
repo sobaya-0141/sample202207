@@ -3,9 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
-    id 'com.google.devtools.ksp' version '1.7.10-1.0.6'
     id 'com.google.gms.google-services'
-    id 'jacoco'
 }
 
 android {
@@ -55,44 +53,6 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
-    applicationVariants.all { variant ->
-        kotlin.sourceSets {
-            getByName(variant.name) {
-                kotlin.srcDir("build/generated/ksp/${variant.name}/kotlin")
-            }
-        }
-    }
-}
-
-jacoco {
-    toolVersion = "0.8.8"
-}
-
-task jacocoDebugTestReport(type: JacocoReport, dependsOn: 'testDebugUnitTest', group: 'verification') {
-    def excludedClasses = []
-    sourceDirectories.from("$projectDir/src/main/java")
-    classDirectories.from(fileTree(
-            dir: "$buildDir/tmp/kotlin-classes/debug",
-            excludes: excludedClasses
-    ))
-    executionData.from("$buildDir/jacoco/testDebugUnitTest.exec")
-}
-
-jacocoDebugTestReport {
-    reports {
-        xml {
-            enabled = true
-            destination = file("$buildDir/reports/jacoco/jacoco.xml")
-        }
-        csv {
-            enabled = true
-            destination = file("$buildDir/reports/jacoco/jacoco.csv")
-        }
-        html {
-            enabled = true
-            destination = file("$buildDir/reports/jacoco/html")
-        }
-    }
 }
 
 configurations {
@@ -126,8 +86,7 @@ dependencies {
     implementation libs.lifecycle.runtime.ktx
     implementation libs.bundles.hilt
     kapt libs.hilt.compiler
-    implementation libs.compose.destinations.core
-    ksp libs.compose.destinations.ksp
+    implementation libs.bundles.compose.navigastion
 
     testImplementation libs.junit
     androidTestImplementation libs.bundles.android.test

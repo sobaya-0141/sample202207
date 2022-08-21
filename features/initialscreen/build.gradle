@@ -3,7 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
-    id 'com.google.devtools.ksp' version '1.7.10-1.0.6'
 }
 
 android {
@@ -37,13 +36,6 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
-    libraryVariants.all { variant ->
-        kotlin.sourceSets {
-            getByName(variant.name) {
-                kotlin.srcDir("build/generated/ksp/${variant.name}/kotlin")
-            }
-        }
-    }
 }
 
 dependencies {
@@ -58,10 +50,9 @@ dependencies {
     implementation libs.lifecycle.runtime.ktx
     implementation libs.bundles.hilt
     kapt libs.hilt.compiler
-    implementation libs.compose.destinations.core
-    ksp libs.compose.destinations.ksp
     implementation libs.coil.compose
     implementation libs.bundles.accompanist.pager
+    implementation libs.bundles.compose.navigastion
 
     testImplementation libs.junit
     androidTestImplementation libs.bundles.android.test
