@@ -86,6 +86,7 @@ dependencies {
     implementation libs.lifecycle.runtime.ktx
     implementation libs.bundles.hilt
     kapt libs.hilt.compiler
+    implementation libs.bundles.compose.navigastion
 
     testImplementation libs.junit
     androidTestImplementation libs.bundles.android.test

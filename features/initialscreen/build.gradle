@@ -52,6 +52,7 @@ dependencies {
     kapt libs.hilt.compiler
     implementation libs.coil.compose
     implementation libs.bundles.accompanist.pager
+    implementation libs.bundles.compose.navigastion
 
     testImplementation libs.junit
     androidTestImplementation libs.bundles.android.test
