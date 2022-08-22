@@ -1,4 +1,4 @@
-package com.example.sample202207.menu_screen
+package com.example.sample202207.menuscreen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

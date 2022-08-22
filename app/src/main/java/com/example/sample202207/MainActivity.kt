@@ -12,7 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.initial_screen.InitialScreenRoute
-import com.example.sample202207.menu_screen.MenuScreeenRoute
+import com.example.sample202207.menuscreen.MenuScreeenRoute
 import com.example.sample202207.ui.theme.Sample202207Theme
 import dagger.hilt.android.AndroidEntryPoint
 
