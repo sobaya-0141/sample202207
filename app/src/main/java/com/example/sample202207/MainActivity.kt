@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.initial_screen.InitialScreenRoute
+import com.example.sample202207.menuscreen.MenuScreeenRoute
 import com.example.sample202207.ui.theme.Sample202207Theme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,12 +28,15 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    NavHost(navController = navController, startDestination = "initialScreen") {
+                    NavHost(navController = navController, startDestination = "menuScreeen") {
                         composable("initialScreen") {
                             InitialScreenRoute(
                                 navController = navController,
                                 viewModel = hiltViewModel()
                             )
+                        }
+                        composable("menuScreeen") {
+                            MenuScreeenRoute(navController = navController)
                         }
                     }
                 }
