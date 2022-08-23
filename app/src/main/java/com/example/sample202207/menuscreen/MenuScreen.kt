@@ -22,14 +22,16 @@ fun MenuScreeenRoute(
     navController: NavController
 ) {
     MenuScreen(
-        onClickInitialScreen = { navController.navigate("InitialScreen") }
+        onClickInitialScreen = { navController.navigate("InitialScreen") },
+        onClickListScreen = { navController.navigate("listScreen") }
     )
 }
 
 @Composable
 internal fun MenuScreen(
     modifier: Modifier = Modifier,
-    onClickInitialScreen: () -> Unit
+    onClickInitialScreen: () -> Unit,
+    onClickListScreen: () -> Unit
 ) {
     Column(
         modifier = modifier
@@ -50,6 +52,25 @@ internal fun MenuScreen(
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = "InitialScreen",
+                    textAlign = TextAlign.Center
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+            }
+        }
+        Spacer(modifier = Modifier.height(16.dp))
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp)
+                .clickable {
+                    onClickListScreen()
+                }
+        ) {
+            Column(Modifier.fillMaxWidth()) {
+                Spacer(modifier = Modifier.height(16.dp))
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    text = "LstScreen",
                     textAlign = TextAlign.Center
                 )
                 Spacer(modifier = Modifier.height(16.dp))

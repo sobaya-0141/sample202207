@@ -35,6 +35,7 @@ android {
 dependencies {
     implementation project(":util")
     implementation project(':repository')
+    implementation project(':repository:network')
 
     implementation libs.kotlinx.coroutines.android
     implementation libs.hilt.android

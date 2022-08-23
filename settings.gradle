@@ -92,9 +92,9 @@ dependencyResolutionManagement {
             library("kotlinx-serialization-json", "org.jetbrains.kotlinx", "kotlinx-serialization-json").versionRef("kotlinx-serialization-json")
             version("retrofit2-kotlinx-serialization-converter", "0.8.0")
             library("retrofit2-kotlinx-serialization-converter", "com.jakewharton.retrofit", "retrofit2-kotlinx-serialization-converter").versionRef("retrofit2-kotlinx-serialization-converter")
-            version("retrofit-mock", "2.9.0")
-            library("retrofit-mock", "com.squareup.retrofit2", "retrofit-mock").versionRef("retrofit-mock")
-            bundle("retrofit-bundle", ["okhttp", "retrofit", "kotlinx-serialization-json", "retrofit2-kotlinx-serialization-converter", "retrofit-mock"])
+            version("retromock", "1.1.1")
+            library("retromock", "co.infinum", "retromock").versionRef("retromock")
+            bundle("retrofit-bundle", ["okhttp", "retrofit", "kotlinx-serialization-json", "retrofit2-kotlinx-serialization-converter", "retromock"])
 
             version("navigation-compose", "2.5.1")
             library("navigation-compose", "androidx.navigation", "navigation-compose").versionRef("navigation-compose")
@@ -124,3 +124,5 @@ include ':repository'
 include ':util'
 include ':features:initialscreen'
 include ':usecase'
+include ':features:listscreen'
+include ':repository:network'

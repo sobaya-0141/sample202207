@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace 'sobaya.libs.repositorhy'
+    namespace 'com.example.network'
     compileSdk 32
 
     defaultConfig {
@@ -34,8 +34,6 @@ android {
 }
 
 dependencies {
-    implementation project(":repository:network")
-
     implementation libs.bundles.retrofit.bundle
     implementation libs.bundles.hilt
     kapt libs.hilt.compiler

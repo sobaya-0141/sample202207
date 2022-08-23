@@ -1,4 +1,4 @@
-package sobaya.libs.repositorhy
+package com.example.listscreen
 
 import org.junit.Test
 

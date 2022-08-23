@@ -1,13 +1,12 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
-    id 'dagger.hilt.android.plugin'
     id 'kotlin-kapt'
-    id 'kotlinx-serialization'
+    id 'dagger.hilt.android.plugin'
 }
 
 android {
-    namespace 'sobaya.libs.repositorhy'
+    namespace 'com.example.listscreen'
     compileSdk 32
 
     defaultConfig {
@@ -24,6 +23,12 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -34,9 +39,22 @@ android {
 }
 
 dependencies {
+    implementation project(":util")
+    implementation project(":usecase")
     implementation project(":repository:network")
 
-    implementation libs.bundles.retrofit.bundle
+    implementation libs.core.ktx
+    implementation libs.material
+    implementation libs.appcompat
+    implementation libs.kotlinx.coroutines.android
+    implementation libs.bundles.compose
+    implementation libs.lifecycle.runtime.ktx
     implementation libs.bundles.hilt
     kapt libs.hilt.compiler
+    implementation libs.coil.compose
+    implementation libs.bundles.accompanist.pager
+    implementation libs.bundles.compose.navigastion
+
+    testImplementation libs.junit
+    androidTestImplementation libs.bundles.android.test
 }
