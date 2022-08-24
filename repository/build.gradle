@@ -39,4 +39,7 @@ dependencies {
     implementation libs.bundles.retrofit.bundle
     implementation libs.bundles.hilt
     kapt libs.hilt.compiler
+
+    testImplementation libs.junit
+    androidTestImplementation libs.bundles.android.test
 }

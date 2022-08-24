@@ -46,15 +46,15 @@ class ListViewModel @Inject constructor(
 
     private fun observeApi() {
         listData.onEach {
-            when (it) {
+            uiState = when (it) {
                 is Result.Success -> {
-                    uiState = uiState.copy(isLoading = false, data = it.data)
+                    uiState.copy(isLoading = false, data = it.data)
                 }
                 is Result.Loading -> {
-                    uiState = uiState.copy(isLoading = true, isError = false, data = null)
+                    uiState.copy(isLoading = true, isError = false, data = null)
                 }
                 is Result.Error -> {
-                    uiState = uiState.copy(isLoading = false, isError = true, data = null)
+                    uiState.copy(isLoading = false, isError = true, data = null)
                 }
                 else -> {
                     throw IllegalStateException()
