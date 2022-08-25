@@ -15,7 +15,9 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import sobaya.libs.util.Result
+import sobaya.libs.util.RetryTrigger
 import sobaya.libs.util.asResult
+import sobaya.libs.util.retryableFlow
 
 @HiltViewModel
 class ListViewModel @Inject constructor(
@@ -23,24 +25,22 @@ class ListViewModel @Inject constructor(
 ) : ViewModel() {
     var uiState by mutableStateOf(ListState.initialState())
         private set
-
-    private val listData = getListDataUseCase
-        .listData
-        .asResult()
-        .stateIn(
-            viewModelScope,
-            SharingStarted.Eagerly,
-            null
-        )
+    private val retryTrigger = RetryTrigger()
+    private val listData = retryableFlow(retryTrigger) {
+        getListDataUseCase().asResult()
+    }.stateIn(
+        viewModelScope,
+        SharingStarted.Eagerly,
+        null
+    )
 
     init {
         observeApi()
-        getListData()
     }
 
     fun getListData() {
         viewModelScope.launch {
-            getListDataUseCase()
+            retryTrigger.retry()
         }
     }
 

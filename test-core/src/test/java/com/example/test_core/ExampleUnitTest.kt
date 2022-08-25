@@ -1,4 +1,4 @@
-package com.example.listscreen
+package com.example.test_core
 
 import org.junit.Test
 

@@ -1,7 +1,8 @@
 package com.example.repository
 
 import com.example.network.data.ListScreenReponse
+import kotlinx.coroutines.flow.Flow
 
 interface ListRepository {
-    suspend fun getListScreenData(): ListScreenReponse?
+    fun getListScreenData(): Flow<ListScreenReponse>
 }
