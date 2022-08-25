@@ -97,25 +97,25 @@ jobs:
           name: app-debug
           path: app/build/outputs/apk/debug/app-debug.apk
 
-  firebase:
-    name: Run Test on Firebase Test Lab
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Download APK
-        uses: actions/download-artifact@v1
-        with:
-          name: app-debug
-
-      - name: Login to Google Cloud
-        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-        with:
-          version: '290.0.1'
-          service_account_key: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
-          export_default_credentials: true
-      - run: gcloud info
-
-      - name: Run Test on Firebase Test Lab
-        run: gcloud firebase test android run --type robo --app app-debug/app-debug.apk --device model=oriole,version=28,locale=ja,orientation=portrait
+#  firebase:
+#    name: Run Test on Firebase Test Lab
+#    needs: build
+#    runs-on: ubuntu-latest
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: Download APK
+#        uses: actions/download-artifact@v1
+#        with:
+#          name: app-debug
+#
+#      - name: Login to Google Cloud
+#        uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+#        with:
+#          version: '290.0.1'
+#          service_account_key: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+#          project_id: ${{ secrets.FIREBASE_PROJECT_ID }}
+#          export_default_credentials: true
+#      - run: gcloud info
+#
+#      - name: Run Test on Firebase Test Lab
+#        run: gcloud firebase test android run --type robo --app app-debug/app-debug.apk --device model=oriole,version=28,locale=ja,orientation=portrait
