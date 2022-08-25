@@ -7,7 +7,7 @@ env:
   # 実行する Gradle コマンド(プロジェクトによって調整してください。)
   GRADLE_KTLINT_TASK: 'ktlint'
   GRADLE_ANDROID_LINT_TASK: 'lint'
-  GRADLE_UNIT_TEST_TASK: 'test'
+  GRADLE_UNIT_TEST_TASK: 'testDebugUnitTest'
 
 jobs:
   check:

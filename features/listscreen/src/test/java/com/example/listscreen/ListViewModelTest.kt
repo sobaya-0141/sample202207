@@ -34,7 +34,7 @@ class ListViewModelTest {
         }
         whenever(getListDataUseCase.invoke()).thenReturn(flow)
         listViewModel = ListViewModel(getListDataUseCase)
-        assert(!listViewModel.uiState.isLoading)
+        assert(listViewModel.uiState.isLoading)
         assert(!listViewModel.uiState.isError)
     }
 
