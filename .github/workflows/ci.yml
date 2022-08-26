@@ -119,4 +119,4 @@ jobs:
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
 
       - name: Run Test on Firebase Test Lab
-        run: gcloud firebase test android run --type robo --app app-debug/app-debug.apk --device model=oriole,version=31,locale=ja,orientation=portrait
+        run: gcloud firebase test android run --type robo --app app-debug.apk --device model=oriole,version=31,locale=ja,orientation=portrait
