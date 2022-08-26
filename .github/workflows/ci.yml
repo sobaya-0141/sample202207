@@ -117,7 +117,7 @@ jobs:
         with:
           workload_identity_provider: ${{ secrets.WIF }}
           service_account: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
-          audience: 'https://github.com/sobaya-0141'
+#          audience: 'https://github.com/sobaya-0141'
 
 #      - name: Login to Google Cloud
 #        uses: google-github-actions/auth@v0
