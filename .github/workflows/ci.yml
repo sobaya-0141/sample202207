@@ -115,7 +115,6 @@ jobs:
         name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v0'
         with:
-          workload_identity_provider: ${{ secrets.FIREBASE_PROJECT_ID }}
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
           credentials_json: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
 
