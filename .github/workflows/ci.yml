@@ -117,7 +117,6 @@ jobs:
         with:
           workload_identity_provider: ${{ secrets.WIF }}
           service_account: ${{ secrets.SERVICE_ACCOUNT }}
-          audience: 'https://github.com/sobaya-0141'
 
       - name: Run Test on Firebase Test Lab
         run: gcloud firebase test android run --type robo --app app-debug/app-debug.apk --device model=oriole,version=28,locale=ja,orientation=portrait
