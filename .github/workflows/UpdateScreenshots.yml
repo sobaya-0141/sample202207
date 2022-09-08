@@ -21,4 +21,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: screenshots
-          path: preview-screenshots/src/test/snapshots/images
+          path: preview-test/src/test/snapshots/images
