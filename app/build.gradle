@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
     id 'com.google.gms.google-services'
+    id 'com.google.devtools.ksp' version '1.7.10-1.0.6'
 }
 
 android {
@@ -87,6 +88,7 @@ dependencies {
     implementation libs.bundles.hilt
     kapt libs.hilt.compiler
     implementation libs.bundles.compose.navigastion
+    implementation libs.showcase
 
     testImplementation libs.junit
     androidTestImplementation libs.bundles.android.test

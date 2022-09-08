@@ -115,6 +115,13 @@ dependencyResolutionManagement {
             library("accompanist-pager", "com.google.accompanist", "accompanist-pager").versionRef("accompanist")
             library("accompanist-pager-indicators", "com.google.accompanist", "accompanist-pager-indicators").versionRef("accompanist")
             bundle("accompanist-pager", ["accompanist-pager", "accompanist-pager-indicators"])
+
+            version("showcase", "1.0.0-beta14")
+            library("showcase", "com.airbnb.android", "showkase").versionRef("showcase")
+            library("showcase-processor", "com.airbnb.android", "showkase-processor").versionRef("showcase")
+
+            version("testParameterInjector", "1.8")
+            library("testParameterInjector", "com.google.testparameterinjector", "test-parameter-injector").versionRef("testParameterInjector")
         }
     }
 }
@@ -124,3 +131,4 @@ include ':repository'
 include ':util'
 include ':features:initialscreen'
 include ':usecase'
+include ':preview-test'
