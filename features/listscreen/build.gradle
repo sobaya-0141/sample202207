@@ -1,0 +1,62 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+}
+
+android {
+    namespace 'com.example.listscreen'
+    compileSdk 32
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 32
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation project(":util")
+    implementation project(":usecase")
+    implementation project(":repository:network")
+    testImplementation project(":test-core")
+
+    implementation libs.core.ktx
+    implementation libs.material
+    implementation libs.appcompat
+    implementation libs.kotlinx.coroutines.android
+    implementation libs.bundles.compose
+    implementation libs.lifecycle.runtime.ktx
+    implementation libs.bundles.hilt
+    kapt libs.hilt.compiler
+    implementation libs.coil.compose
+    implementation libs.bundles.accompanist.pager
+    implementation libs.bundles.compose.navigastion
+
+    testImplementation libs.bundles.test
+    androidTestImplementation libs.bundles.android.test
+    debugImplementation libs.ui.test.manifest
+}

@@ -66,14 +66,26 @@ dependencyResolutionManagement {
 
             version("junit", "4.13.2")
             library("junit", "junit", "junit").versionRef("junit")
+            version("mockito", "4.0.0")
+            library("mockito", "org.mockito.kotlin", "mockito-kotlin").versionRef("mockito")
+            version("test-core", "1.4.0")
+            library("test-core", "androidx.test", "core").versionRef("test-core")
+            version("mockito-core", "4.7.0")
+            library("mockito-core", "org.mockito", "mockito-core").versionRef("mockito-core")
+            version("coroutines-test", "1.6.4")
+            library("coroutines-test", "org.jetbrains.kotlinx", "kotlinx-coroutines-test").versionRef("coroutines-test")
+            version("turbine", "0.9.0")
+            library("turbine", "app.cash.turbine", "turbine").versionRef("turbine")
+            bundle("test", ["junit", "mockito", "test-core", "mockito-core", "coroutines-test", "turbine"])
 
             version("androidx-junit", "1.1.3")
             library("androidx-junit", "androidx.test.ext", "junit").versionRef("androidx-junit")
-
             version("espresso-core", "3.4.0")
             library("espresso-core", "androidx.test.espresso", "espresso-core").versionRef("espresso-core")
             library("ui-test-junit4", "androidx.compose.ui", "ui-test-junit4").versionRef("compose")
-            bundle("android-test", ["androidx-junit", "espresso-core", "ui-test-junit4"])
+            bundle("android-test", ["androidx-junit", "espresso-core", "ui-test-junit4", "mockito", "junit"])
+
+            library("ui-test-manifest", "androidx.compose.ui", "ui-test-manifest").versionRef("compose")
 
             library("ui-tooling", "androidx.compose.ui", "ui-tooling").versionRef("compose")
 
@@ -92,9 +104,9 @@ dependencyResolutionManagement {
             library("kotlinx-serialization-json", "org.jetbrains.kotlinx", "kotlinx-serialization-json").versionRef("kotlinx-serialization-json")
             version("retrofit2-kotlinx-serialization-converter", "0.8.0")
             library("retrofit2-kotlinx-serialization-converter", "com.jakewharton.retrofit", "retrofit2-kotlinx-serialization-converter").versionRef("retrofit2-kotlinx-serialization-converter")
-            version("retrofit-mock", "2.9.0")
-            library("retrofit-mock", "com.squareup.retrofit2", "retrofit-mock").versionRef("retrofit-mock")
-            bundle("retrofit-bundle", ["okhttp", "retrofit", "kotlinx-serialization-json", "retrofit2-kotlinx-serialization-converter", "retrofit-mock"])
+            version("retromock", "1.1.1")
+            library("retromock", "co.infinum", "retromock").versionRef("retromock")
+            bundle("retrofit-bundle", ["okhttp", "retrofit", "kotlinx-serialization-json", "retrofit2-kotlinx-serialization-converter", "retromock"])
 
             version("navigation-compose", "2.5.1")
             library("navigation-compose", "androidx.navigation", "navigation-compose").versionRef("navigation-compose")
@@ -124,3 +136,6 @@ include ':repository'
 include ':util'
 include ':features:initialscreen'
 include ':usecase'
+include ':features:listscreen'
+include ':repository:network'
+include ':test-core'

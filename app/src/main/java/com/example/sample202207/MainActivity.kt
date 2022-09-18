@@ -12,6 +12,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.initial_screen.InitialScreenRoute
+import com.example.listscreen.ListScreenRoute
 import com.example.sample202207.menuscreen.MenuScreeenRoute
 import com.example.sample202207.ui.theme.Sample202207Theme
 import dagger.hilt.android.AndroidEntryPoint
@@ -37,6 +38,9 @@ class MainActivity : ComponentActivity() {
                         }
                         composable("menuScreeen") {
                             MenuScreeenRoute(navController = navController)
+                        }
+                        composable("listScreen") {
+                            ListScreenRoute(navController = navController, viewModel = hiltViewModel())
                         }
                     }
                 }

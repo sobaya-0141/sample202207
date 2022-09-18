@@ -37,6 +37,6 @@ dependencies {
     implementation libs.bundles.hilt
     kapt libs.hilt.compiler
 
-    testImplementation libs.junit
+    testImplementation libs.bundles.test
     androidTestImplementation libs.bundles.android.test
 }
