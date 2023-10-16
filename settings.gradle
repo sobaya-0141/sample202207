@@ -108,7 +108,7 @@ dependencyResolutionManagement {
             library("room-compiler", "androidx.room", "room-compiler").versionRef("room")
             bundle("room", ["room-ktx", "room-runtime"])
 
-            version("ktlint", "0.47.0")
+            version("ktlint", "0.51.0-FINAL")
             library("ktlint", "com.pinterest", "ktlint").versionRef("ktlint")
 
             version("accompanist", "0.26.0-alpha")
